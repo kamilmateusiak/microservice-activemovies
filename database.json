@@ -1,0 +1,10 @@
+{
+  "dev": {
+    "host": "localhost",
+    "user": "root",
+    "password" : "",
+    "database": "micro",
+    "driver": "mysql",
+    "multipleStatements": true
+  }
+}
