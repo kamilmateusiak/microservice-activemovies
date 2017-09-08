@@ -35,6 +35,17 @@ app.get('/movies', (req, res) => {
     });
 });
 
+app.get('/isactive/:movieId', (req, res) => {
+    const dateNow = moment().format('YYYY-MM-DD HH:mm:ss');
+
+    var query = connection.query('SELECT * FROM activemovies WHERE movieId = ' + req.params.movieId, function (error, results, fields) {
+        console.log(results)
+        if (error) res.status(400).send();
+        if (results.length === 0) res.status(401).send();
+        res.status(200).send();
+    });
+});
+
 app.listen(PORT, () => {
     console.log('App listening on port: ' + PORT);
 });
